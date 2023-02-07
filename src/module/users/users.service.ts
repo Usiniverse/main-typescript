@@ -1,19 +1,10 @@
-import knex from "knex";
-import { UserDTO } from "./dto/users.dto";
 import { UserRepository } from "./users.repository"
+import { CreateUserDTO } from "./dto/createUser.dto"
 
 export class UserService {
-    constructor(private userDTO: UserDTO, private userRepository: UserRepository) {}
+    constructor(private userRepository: UserRepository) {}
 
-    async createUser(user: UserDTO): Promise<void> {
+    async createUser(user: CreateUserDTO): Promise<void> {
         return this.userRepository.createUser(user)
     }
-
-    // async getUser(id: number) {
-    //     const find = await knex('users').select('*').where(id)
-
-    //     console.log(find);
-
-    //     return find
-    // }
 }

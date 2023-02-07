@@ -1,16 +1,13 @@
 import express from "express";
-// import { userController } from "../controller/users/index"
+import { UserController } from "../module/users/users.controller"
 
-// const user = new userController(userService)
+export const userController = new UserController();
 
 const userRouter = express.Router()
 
 userRouter.post("/users", (req, res) => {
-    const { user_name, nickname, email, host } = req.body;
-
-    console.log(userController)
-
-    return req
+    const userController = new UserController()
+    return userController
 })
 
 export default userRouter;

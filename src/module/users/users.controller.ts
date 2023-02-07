@@ -2,9 +2,11 @@ import { create } from "domain";
 import { UserDTO } from "./dto/users.dto";
 import { UserService } from "./users.service";
 import express from "express";
+import userRouter from "../../router/userRouter";
 
 export class UserController {
-    constructor(private userService : UserService) {}
+    private userService: UserService
+    constructor() {}
 
     async createUser(req, res): Promise<void> {
         const { user_name, nickname, email, host } = req.body;
